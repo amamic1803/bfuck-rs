@@ -5,6 +5,7 @@ pub mod interpret;
 pub mod io;
 pub mod jit;
 pub mod text;
+pub mod lexer;
 
 
 
