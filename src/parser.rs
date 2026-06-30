@@ -1,0 +1,1 @@
+// todo parser, create grammar that automatically detects and optimizes certain patterns
