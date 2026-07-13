@@ -89,14 +89,14 @@ impl Display for TokenType {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}",
             match self {
-               TokenType::Input => ",",
-               TokenType::Output => ".",
-               TokenType::MoveLeft => "<",
-               TokenType::MoveRight => ">",
-               TokenType::Increment => "+",
-               TokenType::Decrement => "-",
-               TokenType::BracketLeft => "[",
-               TokenType::BracketRight => "]",
+               Self::Input => ",",
+               Self::Output => ".",
+               Self::MoveLeft => "<",
+               Self::MoveRight => ">",
+               Self::Increment => "+",
+               Self::Decrement => "-",
+               Self::BracketLeft => "[",
+               Self::BracketRight => "]",
             }
         )
     }

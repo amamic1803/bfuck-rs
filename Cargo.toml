@@ -2,7 +2,7 @@
 name = "bfuck"
 version = "0.2.0"
 authors = ["Antonio Mamić <antoniomamic007@gmail.com>"]
-edition = "2021"
+edition = "2024"
 description = "A simple Brainfuck interpreter, JIT-compiler and compiler"
 readme = "README.md"
 repository = "https://github.com/amamic1803/bfuck-rs"
@@ -29,12 +29,12 @@ opt-level = 3
 
 
 [dependencies]
-clap = {version = "4.5.4", features = ["cargo"]}
-cranelift = "0.106.0"
-memmap2 = "0.9.4"
-target-lexicon = "0.12.14"
+clap = {version = "4.6.1", features = ["cargo"]}
+cranelift = "0.133.1"
+memmap2 = "0.9.11"
+target-lexicon = "0.13.5"
 
 
 [dev-dependencies]
-assert_cmd = "2.0.14"
-predicates = "3.1.0"
+assert_cmd = "2.2.2"
+predicates = "3.1.4"
