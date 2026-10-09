@@ -6,7 +6,7 @@ use clap::{Arg, ArgAction, command, value_parser};
 
 use bfuck::interpret::interpret;
 use bfuck::code::process_code;
-use bfuck::jit::jit;
+//use bfuck::jit::jit;
 use bfuck::text::text_2_bf;
 
 fn main() {
@@ -101,10 +101,10 @@ fn main() {
                 exit(1);
             },
         };
-        if let Err(err) = jit(token_stream) {
-            eprintln!("{}", err);
-            exit(1);
-        }
+        // if let Err(err) = jit(token_stream) {
+        //     eprintln!("{}", err);
+        //     exit(1);
+        // }
     } else if compile_flag {
         let _token_stream = match process_code(&src_text) {
             Ok(tokens) => tokens,

@@ -1,0 +1,1 @@
+// todo add semantic analyzer here. in bf used to group the same type of operations together

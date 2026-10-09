@@ -3,7 +3,7 @@ pub mod compile;
 pub mod error;
 pub mod interpret;
 pub mod io;
-pub mod jit;
+//pub mod jit;
 pub mod text;
 pub mod lexer;
 pub mod parser;
@@ -19,5 +19,5 @@ pub use error::Error;
 #[doc(inline)]
 pub use interpret::interpret;
 
-#[doc(inline)]
-pub use jit::jit;
+//#[doc(inline)]
+//pub use jit::jit;
