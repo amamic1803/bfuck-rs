@@ -49,14 +49,10 @@ impl<'a> Iterator for Lexer<'a> {
                     }
                 }
                 None => {
-                    match self.lines.next() {
-                        Some(next_line) => {
-                            self.row += 1;
-                            self.line = next_line.chars();
-                            self.col = 0;
-                        }
-                        None => return None,
-                    }
+                    let next_line = self.lines.next()?;
+                    self.row += 1;
+                    self.line = next_line.chars();
+                    self.col = 0;
                 },
             }
         }
@@ -128,20 +124,37 @@ impl TryFrom<char> for TokenType {
         }
     }
 }
+impl From<TokenType> for char {
+    fn from(token_type: TokenType) -> Self {
+        match token_type {
+            TokenType::Input => ',',
+            TokenType::Output => '.',
+            TokenType::MoveLeft => '<',
+            TokenType::MoveRight => '>',
+            TokenType::Increment => '+',
+            TokenType::Decrement => '-',
+            TokenType::BracketLeft => '[',
+            TokenType::BracketRight => ']',
+        }
+    }
+}
+impl From<TokenType> for usize {
+    fn from(token_type: TokenType) -> Self {
+        match token_type {
+            TokenType::Input => 4,
+            TokenType::Output => 5,
+            TokenType::MoveLeft => 6,
+            TokenType::MoveRight => 7,
+            TokenType::Increment => 2,
+            TokenType::Decrement => 3,
+            TokenType::BracketLeft => 0,
+            TokenType::BracketRight => 1,
+        }
+    }
+}
 impl Display for TokenType {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}",
-            match self {
-               Self::Input => ',',
-               Self::Output => '.',
-               Self::MoveLeft => '<',
-               Self::MoveRight => '>',
-               Self::Increment => '+',
-               Self::Decrement => '-',
-               Self::BracketLeft => '[',
-               Self::BracketRight => ']',
-            }
-        )
+        write!(f, "{}", char::from(*self))
     }
 }
 
